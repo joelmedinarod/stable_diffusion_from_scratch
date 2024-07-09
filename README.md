@@ -2,6 +2,7 @@
 
 The model was coded following this [YouTube tutorial](https://www.youtube.com/watch?v=ZBKpAp_6TGI) by Umar Jamil.
 The model is explained in the paper Denoising diffusion probabilistic models (Ho, J., Jain, A. and Abbeel P., 2020).
+To access pretrained model and to the tokenized vocabulary, check: [Stable Diffusion by Umar Jamil](https://github.com/hkproj/pytorch-stable-diffusion/tree/main?tab=readme-ov-file)
 
 ## Warning
 The code doesn't work yet. The main purpose of this project is understanding the architecture of Stable Diffusion.
@@ -30,7 +31,3 @@ Variational Autoencoder (VAE): used to compress image (high-dimensional data) st
 Text-To-Image: Text prompt is passed to CLIP Encoder. Sample pure noise, encode it with variational autoencoder and get latent representation of noise (compressed pure noise). U-Net detects how much noise is in the image. Conditional signal sent from the CLIP Encoder (passed through prompt embeddings) is sent to the U-Net. The U-Net calculates how much noise has to be removed for the image to look like an image that matches the prompt. The image is iteratively denoised over multiple timesteps until there is no more noise remaining in the image. The output of the U-Net is a latent variable that passes through the decoder of the variational autocoder to generate an image.
 
 Image-To-Image: Instead of sampling pure noise at the beginning, an input image is given to the model. The model adds some noise to the image. The more noise is given, the more the model is able to modify the image.
-
-## Notes
-
-It uses a pretrained model.
